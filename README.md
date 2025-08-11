@@ -154,6 +154,15 @@ prom-client error: Missing mandatory help parameter
 All metrics need name and help:
 
 new client.Counter({ name: 'http_requests_total', help: 'Total HTTP requests' });
+#### 2. Setup Grafana
+```bash
+docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss
+```
+![grafana](https://grafana.com/static/img/grafana/showcase_visualize.jpg)
 
+### 3. Setup Loki Server
+```bash
+docker run -d --name=loki -p 3100:3100 grafana/loki
+```
 
 
