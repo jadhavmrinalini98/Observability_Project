@@ -152,3 +152,8 @@ All metrics need name and help:
 
 new client.Counter({ name: 'http_requests_total', help: 'Total HTTP requests' });
 
+<img width="1440" height="900" alt="Screenshot 2025-08-10 at 9 49 58 PM" src="https://github.com/user-attachments/assets/332ef3d0-3ac3-4b8e-ab2e-1b0ed1f54730" />
+<img width="1440" height="900" alt="Screenshot 2025-08-10 at 9 49 53 PM" src="https://github.com/user-attachments/assets/ea27f0ca-1dd1-4ec2-9556-d9568070d180" />
+<img width="1440" height="900" alt="Screenshot 2025-08-09 at 8 35 54 PM" src="https://github.com/user-attachments/assets/35e0ba17-3c5f-4591-a5ce-b11960d55239" />
+
+
