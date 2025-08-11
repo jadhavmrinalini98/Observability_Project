@@ -32,3 +32,128 @@ cd Observability_Project
 
 # Install dependencies
 npm install
+Core dependencies:
+
+bash
+Copy
+Edit
+npm install express prom-client response-time
+▶️ Running the App Locally
+bash
+Copy
+Edit
+npm start
+# or for development with auto-reload:
+npm run dev
+The app will start on http://localhost:3000.
+
+🔗 API Endpoints
+Method	Path	Description
+GET	/	Health check
+GET	/slow	Simulates a slow task with random delays/errors
+GET	/metrics	Prometheus metrics in exposition format
+
+Example:
+curl http://localhost:3000/
+curl http://localhost:3000/slow
+curl http://localhost:3000/metrics
+
+📊 Prometheus Setup
+prometheus-config.yml:
+
+yaml
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: node_app
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['host.docker.internal:3000']  # macOS/Windows host
+      # If running in the same Docker Compose network:
+      # - targets: ['node_app:3000']
+Run Prometheus:
+
+
+docker run -d --name prometheus \
+  -p 9090:9090 \
+  -v "$PWD/prometheus-config.yml:/etc/prometheus/prometheus.yml:ro" \
+  prom/prometheus
+
+Prometheus UI: http://localhost:9090
+Targets page: http://localhost:9090/targets
+
+📈 Grafana Setup
+Run Grafana:
+
+docker run -d --name grafana -p 8080:3000 grafana/grafana-oss
+Login: http://localhost:8080 (default: admin / admin)
+
+Add Prometheus Data Source:
+
+URL:
+
+http://localhost:9090 (Grafana on host)
+
+http://host.docker.internal:9090 (Grafana in Docker on macOS/Windows)
+
+http://prometheus:9090 (same Compose network)
+
+🐳 Docker Compose (Prometheus + Grafana)
+docker-compose.yml:
+
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    image: grafana/grafana-oss
+    ports:
+      - "8080:3000"
+    depends_on:
+      - prometheus
+Run both:
+
+docker compose up -d
+
+📂 Project Structure
+bash
+Copy
+Edit
+.
+├── index.js                  # Express app
+├── utils.js                  # Heavy task simulation
+├── prometheus-config.yml     # Prometheus configuration
+├── docker-compose.yml        # Optional: Prometheus + Grafana
+├── package.json
+└── README.md
+
+🛠 Troubleshooting
+Prometheus target DOWN
+
+If Node app is on host: use host.docker.internal:3000 in prometheus-config.yml
+
+If in Compose: use service name (e.g., node_app:3000)
+
+Ensure Node binds to 0.0.0.0
+
+Grafana can’t connect to Prometheus
+
+Grafana in Docker on macOS/Windows → host.docker.internal:9090
+
+Both in Compose → prometheus:9090
+
+prom-client error: Missing mandatory help parameter
+
+All metrics need name and help:
+
+new client.Counter({ name: 'http_requests_total', help: 'Total HTTP requests' });
+
