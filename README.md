@@ -25,8 +25,6 @@ It exposes HTTP request counters, latency histograms, and simulates variable wor
 <img width="1080" height="593" alt="Screenshot 2025-08-11 at 10 32 22 AM" src="https://github.com/user-attachments/assets/56e78ba3-5cce-4d9c-b6b7-2bf152027a16" />
 <img width="1440" height="900" alt="Screenshot 2025-08-10 at 9 49 58 PM" src="https://github.com/user-attachments/assets/332ef3d0-3ac3-4b8e-ab2e-1b0ed1f54730" />
 <img width="1440" height="900" alt="Screenshot 2025-08-10 at 9 49 53 PM" src="https://github.com/user-attachments/assets/ea27f0ca-1dd1-4ec2-9556-d9568070d180" />
-<img width="1440" height="900" alt="Screenshot 2025-08-09 at 7 04 34 PM" src="https://github.com/user-attachments/assets/c6d8453e-1280-4299-a373-b18d1d7d4dc1" />
-
 
 
 ## 📥 Installation
