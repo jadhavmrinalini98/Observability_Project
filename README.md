@@ -34,14 +34,9 @@ cd Observability_Project
 npm install
 Core dependencies:
 
-bash
-Copy
-Edit
 npm install express prom-client response-time
 ▶️ Running the App Locally
-bash
-Copy
-Edit
+
 npm start
 # or for development with auto-reload:
 npm run dev
