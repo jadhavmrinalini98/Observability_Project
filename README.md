@@ -56,7 +56,6 @@ curl http://localhost:3000/metrics
 📊 Prometheus Setup
 prometheus-config.yml:
 
-yaml
 global:
   scrape_interval: 5s
 
