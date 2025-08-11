@@ -1,4 +1,4 @@
-# Observability Project (Node.js + Express + Prometheus + Grafana)
+# Observability Project (Node.js + Express + Prometheus + Grafana+Loki)
 
 A Node.js/Express application instrumented with [prom-client](https://github.com/siimon/prom-client) for Prometheus metrics and visualized in Grafana.  
 It exposes HTTP request counters, latency histograms, and simulates variable workloads for observability testing.
