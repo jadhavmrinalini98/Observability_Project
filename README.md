@@ -22,6 +22,7 @@ It exposes HTTP request counters, latency histograms, and simulates variable wor
 - **Git** (to clone this repository)
 
 ---
+<img width="1080" height="593" alt="Screenshot 2025-08-11 at 10 32 22 AM" src="https://github.com/user-attachments/assets/56e78ba3-5cce-4d9c-b6b7-2bf152027a16" />
 
 ## 📥 Installation
 
